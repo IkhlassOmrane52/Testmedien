@@ -1,0 +1,223 @@
+@charset "UTF-8";
+/* CSS Document */
+/* ################ Einbindung Google Webfonts ################### */
+/* hier kommen die Schriften rein*/
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/inter-v12-latin-regular.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/inter-v12-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/inter-v12-latin-regular.woff2") format("woff2"), url("../fonts/inter-v12-latin-regular.woff") format("woff"), url("../fonts/inter-v12-latin-regular.ttf") format("truetype"), url("../fonts/inter-v12-latin-regular.svg#Inter") format("svg"); /* Legacy iOS */
+}
+/* inter-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/inter-v12-latin-800.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/inter-v12-latin-800.eot?#iefix") format("embedded-opentype"), url("../fonts/inter-v12-latin-800.woff2") format("woff2"), url("../fonts/inter-v12-latin-800.woff") format("woff"), url("../fonts/inter-v12-latin-800.ttf") format("truetype"), url("../fonts/inter-v12-latin-800.svg#Inter") format("svg"); /* Legacy iOS */
+}
+/* ################ Farben ################### */
+/* ################ Media Queries ################### */
+/* diese Variablen kann man nur in SCSS verwenden! Mediaqueries immer in em oder px angeben - nie in rem!!! */
+/*456px*/
+/*564px*/
+/*760px*/
+/*1016px*/
+/*1272px*/
+/*1432px*/
+/*1800px*/
+/* ################ Allgemeines ################### */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-size: 16px; /* Root-Größe, auf der sich alle anderen Größenangaben, die in rem angegeben werden (also auch margin, Padding etc., beziehen: 1rem = 16px */
+  /*Durch folgende Mediaqueries ändern sich Schriftgrößen und Abstände - sofern in rem angegeben automatisch bei den verschiedenen Displaygrößen, damit spart man sehr viel Schreibarbeit und Code*/
+  /*@media screen and (min-width: $media-s){
+      font-size: 17px;
+  }*/
+}
+@media screen and (min-width: 47.5em) {
+  html, body {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 63.5em) {
+  html, body {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 79.5em) {
+  html, body {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 89.5em) {
+  html, body {
+    font-size: 22px;
+  }
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Schriften, Schriftgröße, Abstände, Schriftfarben */
+body {
+  font-family: "Inter", Helvetica, Arial, sans-serif; /* Achtung! Hier kommt die Schrift für den Fließtext rein, also die, die am meisten verwendet wird!*/
+  font-style: normal;
+  font-weight: 400; /* Font-Weight für Fließtext - Entwurfabhängig!*/
+  color: #151c22; /* Grundschriftfarbe */
+  text-align: center; /*zentriert den wrap außen, wird vererbt! ggf. mit text-align: left zurücksetzen!*/
+  margin-right: auto; /*für Zentrierung */
+  margin-left: auto;
+  position: relative;
+  background-color: white;
+  overflow-x: hidden; /* bei hidden liegt die Scrollleiste obendrüber*/
+  background-image: url("../img/Background-image.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+figure, img {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0 0 1rem 0;
+}
+@media only screen and (min-width: 1100px) {
+  header {
+    display: flex;
+    padding-bottom: 0;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 600px) {
+  header figure {
+    width: 30rem;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  header figure {
+    margin: 0;
+  }
+}
+header .wrap-kontakt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (min-width: 600px) {
+  header .wrap-kontakt {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+header .wrap-kontakt .mail figure, header .wrap-kontakt .tel figure {
+  width: 16rem;
+}
+@media only screen and (min-width: 1100px) {
+  header .wrap-kontakt .mail figure, header .wrap-kontakt .tel figure {
+    width: 13rem;
+  }
+}
+header .wrap-kontakt .mail {
+  margin-bottom: 0.5rem;
+}
+@media only screen and (min-width: 1100px) {
+  header .wrap-kontakt .mail {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}
+
+main h1 {
+  color: #fce163;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  padding-left: 0.5rem;
+}
+@media only screen and (min-width: 430px) {
+  main h1 {
+    font-size: 2.1rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  main h1 {
+    font-size: 2.8rem;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  main h1 {
+    font-size: 3.8rem;
+    top: 40%;
+  }
+}
+main h1 span {
+  font-size: 2.5rem;
+}
+@media only screen and (min-width: 430px) {
+  main h1 span {
+    font-size: 3.5rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  main h1 span {
+    font-size: 4.5rem;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  main h1 span {
+    font-size: 6.5rem;
+  }
+}
+
+footer {
+  color: #4cb8e8;
+  position: absolute;
+  bottom: 0;
+  background-color: #151c22;
+  padding: 0.5rem;
+  width: 100%;
+}
+@media only screen and (min-width: 1400px) {
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+  }
+}
+footer .wrap-copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+footer .wrap-copy p {
+  padding-right: 1rem;
+}
+footer .wrap-copy figure {
+  max-width: 18rem;
+}
+@media only screen and (min-width: 1400px) {
+  footer .wrap-copy figure {
+    width: 14rem;
+  }
+}
+footer .wrap-imp a {
+  color: #4cb8e8;
+  text-decoration: none;
+}/*# sourceMappingURL=styles.css.map */

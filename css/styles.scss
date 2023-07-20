@@ -1,0 +1,243 @@
+@charset "utf-8";
+/* CSS Document */
+/* ################ Einbindung Google Webfonts ################### */
+
+/* hier kommen die Schriften rein*/
+/* inter-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/inter-v12-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/inter-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/inter-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/inter-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/inter-v12-latin-regular.svg#Inter') format('svg'); /* Legacy iOS */
+}
+  /* inter-800 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/inter-v12-latin-800.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/inter-v12-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/inter-v12-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/inter-v12-latin-800.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/inter-v12-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/inter-v12-latin-800.svg#Inter') format('svg'); /* Legacy iOS */
+}
+
+/* ################ Farben ################### */
+
+$col_yellow : #fce163;
+$col_blue: #4cb8e8;
+$col_white70: rgba(255,255,255,0.7);
+$col_black : #151c22;
+
+
+
+/* ################ Media Queries ################### */
+
+/* diese Variablen kann man nur in SCSS verwenden! Mediaqueries immer in em oder px angeben - nie in rem!!! */
+
+$media-xs :28.5em; /*456px*/
+$media-s : 35.25em; /*564px*/
+$media-sm : 47.5em; /*760px*/
+$media-m : 63.5em; /*1016px*/
+$media-l : 79.5em; /*1272px*/
+$media-xl : 89.5em; /*1432px*/
+$media-xxl : 112.5em; /*1800px*/
+
+/* ################ Allgemeines ################### */
+
+html, body{
+	width: 100%;
+	height: 100%;
+    overflow-x: hidden; 
+    font-size: 16px; /* Root-Größe, auf der sich alle anderen Größenangaben, die in rem angegeben werden (also auch margin, Padding etc., beziehen: 1rem = 16px */
+	
+	/*Durch folgende Mediaqueries ändern sich Schriftgrößen und Abstände - sofern in rem angegeben automatisch bei den verschiedenen Displaygrößen, damit spart man sehr viel Schreibarbeit und Code*/
+
+    /*@media screen and (min-width: $media-s){
+        font-size: 17px;
+    }*/
+    @media screen and (min-width: $media-sm){
+        font-size: 17px;
+    }
+    @media screen and (min-width: $media-m){
+        font-size: 18px;
+    }
+    @media screen and (min-width: $media-l){
+        font-size: 20px;
+    }
+    @media screen and (min-width: $media-xl){
+        font-size: 22px;
+    }	
+}
+
+*, *:before, *:after{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    }
+    
+/*Schriften, Schriftgröße, Abstände, Schriftfarben */
+
+body{
+    font-family: "Inter", Helvetica, Arial,sans-serif; /* Achtung! Hier kommt die Schrift für den Fließtext rein, also die, die am meisten verwendet wird!*/
+   	font-style: normal;
+    font-weight: 400; /* Font-Weight für Fließtext - Entwurfabhängig!*/
+    color: $col_black; /* Grundschriftfarbe */
+	text-align: center; /*zentriert den wrap außen, wird vererbt! ggf. mit text-align: left zurücksetzen!*/
+	margin-right: auto; /*für Zentrierung */
+	margin-left: auto;
+	position: relative;
+    background-color: white;
+    overflow-x: hidden; /* bei hidden liegt die Scrollleiste obendrüber*/ 
+    background-image: url("../img/Background-image.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+figure, img {
+    width: 100%;
+    height: auto;
+}
+
+header {
+    background-color: rgba(255,255,255,0.8);
+    padding: 0 0 1rem 0;
+
+    @media only screen and (min-width: 1100px) {
+        display: flex;
+        padding-bottom: 0;
+        justify-content: space-between;
+    }
+
+    figure {
+        @media only screen and (min-width: 600px) {
+            width: 30rem;
+            margin: 0 auto;
+        }
+
+        @media only screen and (min-width: 1100px) {
+            margin: 0;
+        }
+    }
+
+    .wrap-kontakt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media only screen and (min-width: 600px) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .mail, .tel {   
+            figure {
+                width: 16rem;
+
+                @media only screen and (min-width: 1100px) {
+                    width: 13rem;
+                }
+            }
+        }
+
+        .mail {
+            margin-bottom: .5rem;
+
+            @media only screen and (min-width: 1100px) {
+                margin-bottom: 0;
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+main {
+    h1 {
+        color: $col_yellow;
+        font-size: 1.5rem;
+        position: absolute;
+        top: 50%;
+        padding-left: .5rem;
+
+        @media only screen and (min-width: 430px) {
+            font-size: 2.1rem;
+        }
+
+        @media only screen and (min-width: 600px) {
+            font-size: 2.8rem;
+        }
+
+        @media only screen and (min-width: 1100px) {
+            font-size: 3.8rem;
+            top: 40%;
+        }
+
+        span {
+            font-size: 2.5rem;
+            @media only screen and (min-width: 430px) {
+                font-size: 3.5rem;
+            }
+
+            @media only screen and (min-width: 600px) {
+                font-size: 4.5rem;
+            }
+
+            @media only screen and (min-width: 1100px) {
+                font-size: 6.5rem;
+            }
+        }
+    }
+}
+
+footer {
+    color: $col_blue;
+    position: absolute;
+    bottom: 0;
+    background-color: $col_black;
+    padding: .5rem;
+    width: 100%;
+
+    @media only screen and (min-width: 1400px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .5rem;
+    }
+
+    .wrap-copy {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            padding-right: 1rem;
+        }
+
+        figure {
+            max-width: 18rem;
+
+            @media only screen and (min-width: 1400px) {
+                width: 14rem;
+            }
+        }
+    }
+
+    .wrap-imp {
+        a {
+            color: $col_blue;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,178 @@
+@charset "UTF-8";
+/* CSS Document */
+/* ################ Einbindung Google Webfonts ################### */
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/open-sans-v28-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/open-sans-v28-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v28-latin-regular.woff2") format("woff2"), url("../fonts/open-sans-v28-latin-regular.woff") format("woff"), url("../fonts/open-sans-v28-latin-regular.ttf") format("truetype"), url("../fonts/open-sans-v28-latin-regular.svg#OpenSans") format("svg");
+  /* Legacy iOS */
+  }
+
+/* open-sans-600 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/open-sans-v28-latin-600.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/open-sans-v28-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v28-latin-600.woff2") format("woff2"), url("../fonts/open-sans-v28-latin-600.woff") format("woff"), url("../fonts/open-sans-v28-latin-600.ttf") format("truetype"), url("../fonts/open-sans-v28-latin-600.svg#OpenSans") format("svg");
+  /* Legacy iOS */
+}
+
+/* open-sans-800 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/open-sans-v28-latin-800.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/open-sans-v28-latin-800.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v28-latin-800.woff2") format("woff2"), url("../fonts/open-sans-v28-latin-800.woff") format("woff"), url("../fonts/open-sans-v28-latin-800.ttf") format("truetype"), url("../fonts/open-sans-v28-latin-800.svg#OpenSans") format("svg");
+  /* Legacy iOS */
+}
+
+html, body {
+	font-size: 1rem;
+	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*Schriften, Schriftgröße, Abstände, Schriftfarben */
+body {
+	/* generelles Grid page layout Anfang */
+	height: 100vh;
+	display: grid;
+	grid-template: auto 1fr auto / auto 1fr auto;
+	/* generelles Grid page layout Ende - Ja, das ist alles! */
+
+	background-image: linear-gradient(to top left, rgba(255, 255, 245, 0.35) 0vh, rgba(255, 255, 245, 0.85) 50vh, rgba(255,255,245, 0.55) 68vh, rgba(255, 255, 245, 0.75) 86vh), url("./../img/bg_wood.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	color: rgba(1,1,1, 1);
+	overflow-x: hidden;
+}
+
+
+
+header, footer {
+	/* generelles Grid header/footer layout Anfang */
+	grid-column: 1 / span 3;
+	/* generelles Grid header/footer layout Ende */
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: rgba(167,43,48,1);
+  margin: 0;
+  padding-top: 1rem;
+}
+
+address {
+  font-style: normal;
+}
+
+a:link {
+  text-decoration: none;
+  color: rgba(1,1,1, 1);
+}
+
+a:visited {
+  text-decoration: none;
+  color: rgba(1,1,1, 1);
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgba(167,43,48,1);
+}
+
+main {
+	display: flex;
+	grid-area: 2 / 2;
+}
+
+main .omw-card {
+	flex-direction: column;
+}
+
+main .omw-header {
+	font-size: 1.875rem;
+	font-size: clamp(1.875rem, 1.6rem + 1.375vw, 3.25rem);
+	font-weight: 600;
+	color: rgb(167, 43, 48);
+	text-shadow: 1px 1px rgb(1, 1, 1);
+}
+
+main .omw-content,
+main figure img {
+	max-width: 100%;
+	padding: 0 2vh;
+}
+
+footer {
+	font-size: 1rem;
+	margin: 0 auto 1vh;
+	text-align: center;
+}
+
+.omw-card {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.omw-card:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+.omw-image {
+  flex: 0 1 384px;
+}
+
+.omw-image img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.omw-content {
+  flex: 0 1 auto;
+}
+
+body.impressum,
+body.datenschutz {
+	background-image: linear-gradient(to top left, rgba(255,255,255, 0.85) 0vh, rgba(255,255,255, 0.9) 50vh, rgba(255,255,255, 0.85) 100vh), url("./../img/bg_wood.jpg")
+}
+
+body.impressum h2,
+body.datenschutz h2 {
+	margin: 3vh 0 0.25vh;
+}
+
+body.impressum :is(h3, h4, h5, h6, h7),
+body.datenschutz :is(h3, h4, h5, h6, h7) {
+	margin: 1.5vh 0 0.125vh;
+}
+
+body.impressum main,
+body.datenschutz main {
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 4vh;
+}
